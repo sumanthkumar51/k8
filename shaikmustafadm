@@ -1,0 +1,31 @@
+#creating pod 
+---
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: devops
+  labels:
+    app: swiggy
+spec:
+  containers:
+    - name: cont-1
+      image: shaikmustafa/dm
+      ports:
+        - containerPort: 80
+...
+
+##creating service 
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: myservice
+spec:
+  type: NodePort
+  selector:
+    app : swiggy
+  ports:
+    - port: 80
+      targetPort: 80
+      
+...
